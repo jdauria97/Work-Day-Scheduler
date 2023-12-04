@@ -4,6 +4,29 @@
 var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM, DD, YYYY'));
 
+var timeNow = dayjs();
+$('#present').addClass('.present');
+
+var hourNow = dayjs().hour();
+
+var hr9 = document.getElementById('hour-9');
+var hr10 = document.getElementById('hour-10');
+var hr11 = document.getElementById('hour-11');
+var hr12 = document.getElementById('hour-12');
+var hr13 = document.getElementById('hour-13');
+var hr14 = document.getElementById('hour-14');
+var hr15 = document.getElementById('hour-15');
+var hr16 = document.getElementById('hour-16');
+var hr17 = document.getElementById('hour-17');
+hr9 = dayjs().hour(9);
+hr10 = dayjs().hour(10);
+hr11 = dayjs().hour(11);
+hr12 = dayjs().hour(12);
+hr13 = dayjs().hour(13);
+hr14 = dayjs().hour(14);
+hr15 = dayjs().hour(15);
+hr16 = dayjs().hour(16);
+hr17 = dayjs().hour(17);
 
 
 $(function () {
