@@ -4,9 +4,6 @@
 var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM, DD, YYYY'));
 
-var timeNow = dayjs();
-$('#present').addClass('.present');
-
 var hourNow = dayjs().hour();
 
 var hr9 = document.getElementById('hour-9');
@@ -18,16 +15,42 @@ var hr14 = document.getElementById('hour-14');
 var hr15 = document.getElementById('hour-15');
 var hr16 = document.getElementById('hour-16');
 var hr17 = document.getElementById('hour-17');
-hr9 = dayjs().hour(9);
-hr10 = dayjs().hour(10);
-hr11 = dayjs().hour(11);
-hr12 = dayjs().hour(12);
-hr13 = dayjs().hour(13);
-hr14 = dayjs().hour(14);
-hr15 = dayjs().hour(15);
-hr16 = dayjs().hour(16);
-hr17 = dayjs().hour(17);
 
+var hours = [hr9, hr10, hr11, hr12, hr13, hr14, hr15, hr16, hr17];
+
+hr9.value = 9
+hr10.value = 10
+hr11.value = 11
+hr12.value = 12
+hr13.value = 13
+hr14.value = 14
+hr15.value = 15
+hr16.value = 16
+hr17.value = 17
+
+
+function classHour() {
+    for (var i = 0; i < hours.length; i++) {
+        if (hours[i].value > hourNow){
+            $(hours[i]).removeClass("past");
+            $(hours[i]).removeClass("present");
+            $(hours[i]).addClass("future");
+        } else if (hours[i].value === hourNow){
+            $(hours[i]).removeClass("past");
+            $(hours[i]).addClass("present");
+            $(hours[i]).removeClass("future");
+        } else {
+            $(hours[i]).addClass("past");
+            $(hours[i]).removeClass("present");
+            $(hours[i]).removeClass("future");
+        }
+    }
+};
+
+classHour ();
+
+console.log(hours);
+console.log(hourNow);
 
 $(function () {
     // TODO: Add a listener for click events on the save button. This code should
